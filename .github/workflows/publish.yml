@@ -3,6 +3,7 @@ on: push
 jobs:
   publish:
     runs-on: ubuntu-latest
+    f: github.ref == 'main'
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
