@@ -30,7 +30,7 @@ jobs:
     if: github.ref != 'main'
     steps:
       - uses: actions/checkout@v2
-      - run: npm version prerelease
+      - run: npm version prerelease --no-git-tag-version
       - id: publish-beta
         uses: JS-DevTools/npm-publish@v1
         with:
