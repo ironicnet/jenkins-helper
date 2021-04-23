@@ -39,4 +39,4 @@ jobs:
           dry-run: true
       - if: steps.publish-beta.outputs.type != 'none'
         run: |
-          echo "Version changed: ${{ steps.publish-beta.outputs.old-version }} => ${{ steps.publish-beta.outputs.version }} § {{ steps.publish-beta.outputs.tag }} - {{ github.ref }}"
+          echo "Version changed: ${{ steps.publish-beta.outputs.old-version }} => ${{ steps.publish-beta.outputs.version }} § ${{ steps.publish-beta.outputs.tag }} - ${{ github.ref }}"
