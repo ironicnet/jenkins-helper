@@ -30,12 +30,12 @@ jobs:
     if: github.ref != 'main'
     steps:
       - uses: actions/checkout@v2
-      - run: npm version prerelease --preid beta
+      - run: npm version prerelease
       - id: publish-beta
         uses: JS-DevTools/npm-publish@v1
         with:
           token: ${{ secrets.NPM_TOKEN }}
-          tag: 'beta'
+          tag: 'prerelease'
           dry-run: true
       - if: steps.publish-beta.outputs.type != 'none'
         run: |
