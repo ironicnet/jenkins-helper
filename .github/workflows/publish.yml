@@ -17,11 +17,11 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - id: publish
-        if: github.ref == 'main'
+        # if: github.ref == 'main'
         uses: JS-DevTools/npm-publish@v1
         with:
           token: ${{ secrets.NPM_TOKEN }}
-          tag: 'latest'
+          tag: 'beta'
           dry-run: true
       - if: steps.publish.outputs.type != 'none'
         run: |
