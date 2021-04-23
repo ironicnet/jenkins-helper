@@ -1,0 +1,16 @@
+{
+  "name": "jenkins-helper",
+  "version": "1.0.0",
+  "description": "",
+  "bin": {
+    "jenkins": "lib/jenkins-build.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "base-64": "^1.0.0",
+    "enquirer": "^2.3.6",
+    "node-fetch": "^2.6.1",
+    "yargs": "^16.2.0"
+  }
+}
