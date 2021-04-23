@@ -1,22 +1,27 @@
+name: Publish the NPM package
 on: push
 
 jobs:
-  publish:
+  build:
     runs-on: ubuntu-latest
-    if: github.ref == 'main'
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
         with:
           node-version: 12
       - run: npm install
-      - run: npm test
+  publish:
+    runs-on: ubuntu-latest
+    needs: build
+    if: github.ref == 'main'
+    steps:
+      - uses: actions/checkout@v2
       - id: publish
         if: github.ref == 'main'
         uses: JS-DevTools/npm-publish@v1
         with:
           token: ${{ secrets.NPM_TOKEN }}
-          tag: !e "${{ github.ref == 'main' ? 'latest' : 'beta' }}"
+          tag: 'latest'
           dry-run: true
       - if: steps.publish.outputs.type != 'none'
         run: |
