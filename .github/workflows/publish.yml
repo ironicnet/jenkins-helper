@@ -30,11 +30,13 @@ jobs:
     if: github.ref != 'main'
     steps:
       - uses: actions/checkout@v2
-      - id: publish
+      - run: npm version prerelease --preid beta
+      - id: publish-beta
         uses: JS-DevTools/npm-publish@v1
         with:
           token: ${{ secrets.NPM_TOKEN }}
           tag: 'beta'
-      - if: steps.publish.outputs.type != 'none'
+          dry-run: true
+      - if: steps.publish-beta.outputs.type != 'none'
         run: |
-          echo "Version changed: ${{ steps.publish.outputs.old-version }} => ${{ steps.publish.outputs.version }}"
+          echo "Version changed: ${{ steps.publish-beta.outputs.old-version }} => ${{ steps.publish-beta.outputs.version }} § {{ steps.publish-beta.outputs.tag }}"
