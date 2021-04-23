@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "bin": {
-    "jenkins": "lib/jenkins-build.js"
+    "jenkins": "lib/jenkins.js"
   },
   "author": "",
   "license": "ISC",
