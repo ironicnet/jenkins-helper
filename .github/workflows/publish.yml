@@ -16,6 +16,7 @@ jobs:
     if: github.ref == 'refs/heads/main'
     steps:
       - uses: actions/checkout@v2
+      - run: npm version minor --no-git-tag-version
       - id: publish
         uses: JS-DevTools/npm-publish@v1
         with:
@@ -30,7 +31,7 @@ jobs:
     if: github.ref != 'refs/heads/main'
     steps:
       - uses: actions/checkout@v2
-      - run: npm version prerelease --no-git-tag-version
+      - run: npm version prerelease --no-git-tag-version --preid=${{ github.sha }}
       - id: publish-beta
         uses: JS-DevTools/npm-publish@v1
         with:
