@@ -2,8 +2,12 @@
   "name": "jenkins-helper",
   "version": "1.0.0",
   "description": "",
+  "files": [
+    "bin",
+    "lib"
+  ],
   "bin": {
-    "jenkins": "node lib/jenkins.js"
+    "jenkins": "bin/jenkins.js"
   },
   "author": "",
   "license": "ISC",
