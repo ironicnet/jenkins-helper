@@ -37,7 +37,6 @@ jobs:
         with:
           token: ${{ secrets.NPM_TOKEN }}
           tag: 'prerelease'
-          dry-run: true
       - if: steps.publish-beta.outputs.type != 'none'
         run: |
           echo "Version changed: ${{ steps.publish-beta.outputs.old-version }} => ${{ steps.publish-beta.outputs.version }} § ${{ steps.publish-beta.outputs.tag }} - ${{ github.ref }}"
